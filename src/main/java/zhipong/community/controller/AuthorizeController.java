@@ -1,12 +1,15 @@
 package zhipong.community.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import zhipong.community.dto.AccessTokenDTO;
 import zhipong.community.dto.GithubUser;
 import zhipong.community.provider.GithubProvider;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @Author zhipong
@@ -18,19 +21,35 @@ public class AuthorizeController {
     @Autowired
     private GithubProvider githubProvider;
 
+    //启动文件时，读取配置，将配置放到Spring的Map里
+    @Value("${github.client.id}")
+    private String clientID;
+    @Value("${github.client.secret}")
+    private String clientSecret;
+    @Value("${github.redirect.uri}")
+    private String redirectUri;
+    @Value("${gitee.grant.type}")
+    private String grantType;
+
+
     @GetMapping("/callback")
-    public String callBack(@RequestParam(name="code")String code,
-                           @RequestParam(name="state") String state){
+    public String callBack(@RequestParam(name = "code") String code,
+                           HttpServletRequest request) {
+
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
-        accessTokenDTO.setClient_id("32b2e2cb1491594c797d");
-        accessTokenDTO.setClient_secret("8520735901a688a5e086ee050fb8b9724406b134");
+        accessTokenDTO.setGrant_type(grantType);
         accessTokenDTO.setCode(code);
-        accessTokenDTO.setRedirect_uri("http://localhost:8887/callback");
-        accessTokenDTO.setState(state);
+        accessTokenDTO.setClient_id(clientID);
+        accessTokenDTO.setRedirect_uri(redirectUri);
+        accessTokenDTO.setClient_secret(clientSecret);
 
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser user = githubProvider.getUser((accessToken));
-        System.out.println(user.getName());
-        return "index";
+        if(user!=null){
+            request.getSession().setAttribute("user",user);
+            return "redirect:/";
+        }else{
+            return "redirect:/";
+        }
     }
 }
