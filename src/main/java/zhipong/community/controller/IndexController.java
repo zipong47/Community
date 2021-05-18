@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class IndexController {
     @Autowired
-    private UserMapper   userMapper;
+    private UserMapper userMapper;
 
     @GetMapping("/")
     public String index(HttpServletRequest request) {
