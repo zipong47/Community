@@ -11,7 +11,8 @@ import zhipong.community.mapper.UserMapper;
 import zhipong.community.model.User;
 import zhipong.community.provider.GithubProvider;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletResponse;
 import java.util.UUID;
 
 /**
@@ -42,7 +43,7 @@ public class AuthorizeController {
 
     @GetMapping("/callback")
     public String callBack(@RequestParam(name = "code") String code,
-                           HttpServletRequest request) {
+                           HttpServletResponse response) {
 
         AccessTokenDTO accessTokenDTO = new AccessTokenDTO();
         accessTokenDTO.setGrant_type(grantType);
@@ -55,13 +56,15 @@ public class AuthorizeController {
         GithubUser user = githubProvider.getUser((accessToken));
         if(user!=null){
             User insertUser = new User();
-            insertUser.setToken(UUID.randomUUID().toString());
+            String token = UUID.randomUUID().toString();
+            insertUser.setToken(token);
             insertUser.setName(user.getName());
             insertUser.setAccountId(String.valueOf(user.getId()));
             insertUser.setGmtCreate(System.currentTimeMillis());
             insertUser.setGmtModified(insertUser.getGmtCreate());
             userMapper.insert(insertUser);
-            request.getSession().setAttribute("user",user);
+            response.addCookie(new Cookie("token",token));
+//            request.getSession().setAttribute("user",user);
             return "redirect:/";
         }else{
             return "redirect:/";
