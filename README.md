@@ -13,3 +13,7 @@
     Maven 3.6.3
     Spring 5.3.6
     SpringBoot 2.4.5
+## 脚本
+```bash
+    mvn flyway:migrate
+```
