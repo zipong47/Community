@@ -6,8 +6,10 @@
 [Bootstrap](https://v4.bootcss.com/docs/getting-started/)  
 [Github OAuth](https://docs.github.com/en/developers/apps/creating-an-oauth-app)  
 ## 工具
-[OkHttp](https://square.github.io/okhttp/)
-[Visual Paradigm](http://www.visual-paradigm.com/)  
+[OkHttp](https://square.github.io/okhttp/)  
+[Visual Paradigm](http://www.visual-paradigm.com/)   
+[Flyway](https://flywaydb.org/)  
+[Lombok](https://projectlombok.org/)  
 ## 版本
     Bootstrap v3.6.0
     Maven 3.6.3

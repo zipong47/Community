@@ -1,13 +1,14 @@
-package zhipong.community.model;
+package zhipong.community.dto;
 
 import lombok.Data;
+import zhipong.community.model.User;
 
 /**
  * @Author zhipong
- * @Date 2021/5/23
+ * @Date 2021/5/24
  */
 @Data
-public class Question {
+public class QuestionDTO {
     private Integer id;
     private String title;
     private String description;
@@ -18,4 +19,5 @@ public class Question {
     private Integer viewCount;
     private Integer commentCount;
     private Integer likeCount;
+    private User user;
 }
