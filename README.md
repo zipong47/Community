@@ -5,6 +5,7 @@
 [Spring Web文档](https://spring.io/guides/serving-web-content/)  
 [Bootstrap](https://v4.bootcss.com/docs/getting-started/)  
 [Github OAuth](https://docs.github.com/en/developers/apps/creating-an-oauth-app)  
+[Thymeleaf](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html)  
 ## 工具
 [OkHttp](https://square.github.io/okhttp/)  
 [Visual Paradigm](http://www.visual-paradigm.com/)   

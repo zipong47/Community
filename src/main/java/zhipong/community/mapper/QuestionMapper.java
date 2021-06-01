@@ -2,6 +2,7 @@ package zhipong.community.mapper;
 
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import zhipong.community.model.Question;
 
@@ -17,6 +18,13 @@ public interface QuestionMapper {
     @Insert("insert into question (title,description,gmt_create,gmt_modified,creator,tag) values (#{title},#{description},#{gmtCreate},#{gmtModified},#{creator},#{tag})")
     void create(Question question);
 
-    @Select("select * from question")
-    List<Question> list();
+    @Select("select * from question limit #{offset}, #{size}")
+    List<Question> list(@Param(value = "offset") Integer offset, @Param(value = "size") Integer size);
+
+    /*
+        这里为什么是count(1)而不是count(*)，在老版本数据库中，前者要比后者效率高
+        由于不能保证数据库版本是最高的，所以用count(1)比较好
+     */
+    @Select("select count(1) from question")
+    Integer count();
 }
