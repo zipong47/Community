@@ -1,10 +1,6 @@
 package zhipong.community.mapper;
 
-import org.apache.ibatis.annotations.Insert;
-import org.apache.ibatis.annotations.Mapper;
-import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Select;
-import zhipong.community.dto.QuestionDTO;
+import org.apache.ibatis.annotations.*;
 import zhipong.community.model.Question;
 
 import java.util.List;
@@ -37,4 +33,7 @@ public interface QuestionMapper {
 
     @Select("select * from question where id=#{id}")
     Question getById(@Param(value = "id") Integer id);
+
+    @Update("update question set title=#{title}, description=#{description}, gmt_modified=#{gmtModified}, tag=#{tag} where id=#{id}")
+    void update(Question question);
 }
