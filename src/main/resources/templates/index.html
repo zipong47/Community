@@ -17,13 +17,7 @@
 <div class="container-fluid main">
     <div class="row">
         <div class="col-lg-9 col-md-12 col-sm-12 col-xs-12">
-            <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbs
-
-git
-
-
-
-                ep;发现</h2>
+            <h2><span class="glyphicon glyphicon-list" aria-hidden="true"></span>&nbsp;发现</h2>
             <hr>
 
             <div class="media" th:each="question:${pagination.questions}">
@@ -33,7 +27,9 @@ git
                     </a>
                 </div>
                 <div class="media-body">
-                    <h4 class="media-heading" th:text="${question.getTitle()}">Media heading</h4>
+                    <h4 class="media-heading" \>
+                        <a th:href="'/question/'+${question.id}" th:text="${question.getTitle()}"></a>
+                    </h4>
                     <span th:text="${question.getDescription()}"></span><br>
                     <span class="text-desc">
                         <span th:text="${question.commentCount}"></span>个回复·

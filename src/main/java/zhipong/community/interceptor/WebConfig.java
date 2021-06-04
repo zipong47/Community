@@ -11,6 +11,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
  * @Date 2021/6/2
  */
 @Configuration
+//@EnableWebMvc
 public class WebConfig implements WebMvcConfigurer {
 
     @Autowired
