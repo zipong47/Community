@@ -4,7 +4,7 @@ body {
 }
 
 .main {
-    background-color: whitesmoke;
+    background-color: white;
     margin: 30px;
 }
 
@@ -22,4 +22,8 @@ body {
     font-size: 12px;
     font-weight: normal;
     color: #999999;
+}
+
+.profile .section {
+    margin-top: 15px;
 }
