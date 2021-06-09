@@ -7,6 +7,7 @@
 [Bootstrap](https://v4.bootcss.com/docs/getting-started/)  
 [Github OAuth](https://docs.github.com/en/developers/apps/creating-an-oauth-app)  
 [Thymeleaf](https://www.thymeleaf.org/doc/tutorials/3.0/usingthymeleaf.html)  
+[Spring Dev Tool]  
 ## 工具
 [OkHttp](https://square.github.io/okhttp/)  
 [Visual Paradigm](http://www.visual-paradigm.com/)   
@@ -20,4 +21,5 @@
 ## 脚本
 ```bash
     mvn flyway:migrate
+    mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate
 ```
