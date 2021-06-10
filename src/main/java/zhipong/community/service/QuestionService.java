@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import zhipong.community.dto.PaginationDTO;
 import zhipong.community.dto.QuestionDTO;
+import zhipong.community.exception.CustomizeErrorCode;
+import zhipong.community.exception.CustomizeException;
 import zhipong.community.mapper.QuestionMapper;
 import zhipong.community.mapper.UserMapper;
 import zhipong.community.model.Question;
@@ -86,6 +88,9 @@ public class QuestionService {
 
     public QuestionDTO getById(Integer id) {
         Question question=questionMapper.selectByPrimaryKey(id);
+        if(question==null){
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
         QuestionDTO questionDTO=new QuestionDTO();
         BeanUtils.copyProperties(question,questionDTO);
         User user = userMapper.selectByPrimaryKey(question.getCreator());
@@ -106,7 +111,10 @@ public class QuestionService {
             updateQuestion.setTag(question.getTag());
             QuestionExample example = new QuestionExample();
             example.createCriteria().andIdEqualTo(question.getId());
-            questionMapper.updateByExampleSelective(updateQuestion, example);
+            int res = questionMapper.updateByExampleSelective(updateQuestion, example);
+            if(res!=1){
+                throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+            }
         }
     }
 }
