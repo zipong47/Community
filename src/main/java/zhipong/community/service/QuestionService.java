@@ -8,6 +8,7 @@ import zhipong.community.dto.PaginationDTO;
 import zhipong.community.dto.QuestionDTO;
 import zhipong.community.exception.CustomizeErrorCode;
 import zhipong.community.exception.CustomizeException;
+import zhipong.community.mapper.QuestionExtMapper;
 import zhipong.community.mapper.QuestionMapper;
 import zhipong.community.mapper.UserMapper;
 import zhipong.community.model.Question;
@@ -29,6 +30,9 @@ public class QuestionService {
 
     @Autowired
     private UserMapper userMapper;
+
+    @Autowired
+    private QuestionExtMapper questionExtMapper;
 
     public PaginationDTO list(Integer page, Integer size) {
         PaginationDTO paginationDTO = new PaginationDTO();
@@ -116,5 +120,12 @@ public class QuestionService {
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
         }
+    }
+
+    public void incView(Integer id) {
+        Question question = new Question();
+        question.setId(id);
+        question.setViewCount(1);
+        questionExtMapper.incView(question);
     }
 }
