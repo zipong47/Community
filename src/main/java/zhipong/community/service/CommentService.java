@@ -2,6 +2,7 @@ package zhipong.community.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import zhipong.community.enums.CommentTypeEnum;
 import zhipong.community.exception.CustomizeErrorCode;
 import zhipong.community.exception.CustomizeException;
@@ -26,6 +27,8 @@ public class CommentService {
 
     @Autowired
     private QuestionExtMapper questionExtMapper;
+
+    @Transactional
     public void insert(Comment comment) {
         if(comment.getParentId()==null||comment.getParentId()==0){
             throw new CustomizeException(CustomizeErrorCode.TARGET_PARAM_NOT_FOUND);
