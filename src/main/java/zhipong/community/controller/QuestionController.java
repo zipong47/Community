@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import zhipong.community.dto.CommentCreateDTO;
 import zhipong.community.dto.CommentDTO;
 import zhipong.community.dto.QuestionDTO;
+import zhipong.community.enums.CommentTypeEnum;
 import zhipong.community.service.CommentService;
 import zhipong.community.service.QuestionService;
 
@@ -29,7 +30,7 @@ public class QuestionController {
     @GetMapping("/question/{id}")
     public String question(@PathVariable(name = "id") Long id, Model model){
         QuestionDTO questionDTO = questionService.getById(id);
-        List<CommentDTO> comments = commentService.listByQuestionId(id);
+        List<CommentDTO> comments = commentService.listByQuestionId(id, CommentTypeEnum.QUESTION);
         questionService.incView(id);
         model.addAttribute("question",questionDTO);
         model.addAttribute("comments",comments);

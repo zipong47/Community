@@ -8,10 +8,7 @@ import zhipong.community.dto.CommentDTO;
 import zhipong.community.enums.CommentTypeEnum;
 import zhipong.community.exception.CustomizeErrorCode;
 import zhipong.community.exception.CustomizeException;
-import zhipong.community.mapper.CommentMapper;
-import zhipong.community.mapper.QuestionExtMapper;
-import zhipong.community.mapper.QuestionMapper;
-import zhipong.community.mapper.UserMapper;
+import zhipong.community.mapper.*;
 import zhipong.community.model.*;
 
 import java.util.ArrayList;
@@ -39,6 +36,9 @@ public class CommentService {
     @Autowired
     private UserMapper userMapper;
 
+    @Autowired
+    private CommentExtMapper commentExtMapper;
+
     @Transactional
     public void insert(Comment comment) {
         if (comment.getParentId() == null || comment.getParentId() == 0) {
@@ -53,6 +53,11 @@ public class CommentService {
                 throw new CustomizeException(CustomizeErrorCode.COMMENT_NOT_FOUND);
             }
             commentMapper.insert(comment);
+            // 增加评论数
+            Comment parentComment = new Comment();
+            parentComment.setId(comment.getParentId());
+            parentComment.setCommentCount(1);
+            commentExtMapper.incCommentCount(parentComment);
         } else {
             Question question = questionMapper.selectByPrimaryKey(comment.getParentId());
             if (question == null) {
@@ -64,10 +69,10 @@ public class CommentService {
         }
     }
 
-    public List<CommentDTO> listByQuestionId(Long id) {
+    public List<CommentDTO> listByQuestionId(Long id, CommentTypeEnum type) {
         CommentExample commentExample = new CommentExample();
         commentExample.createCriteria().andParentIdEqualTo(id)
-                .andTypeEqualTo(CommentTypeEnum.QUESTION.getType());
+                .andTypeEqualTo(type.getType());
         commentExample.setOrderByClause("gmt_create desc");
         List<Comment> comments = commentMapper.selectByExample(commentExample);
         if (comments.size() == 0) {
