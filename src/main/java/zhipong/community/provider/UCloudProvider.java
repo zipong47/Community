@@ -10,6 +10,8 @@ import cn.ucloud.ufile.exception.UfileServerException;
 import cn.ucloud.ufile.http.OnProgressListener;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import zhipong.community.exception.CustomizeErrorCode;
+import zhipong.community.exception.CustomizeException;
 
 import java.io.File;
 import java.io.IOException;
@@ -26,7 +28,14 @@ public class UCloudProvider {
     private String publicKey;
     @Value("${ucloud.ufile.private-key}")
     private String privateKey;
-
+    @Value("${ucloud.ufile.bucket-name}")
+    private String bucketName;
+    @Value("${ucloud.ufile.region}")
+    private String region;
+    @Value("${ucloud.ufile.suffix}")
+    private String suffix;
+    @Value("${ucloud.ufile.expires}")
+    private Integer expires;
     public String upload(InputStream fileSteam, String mimeType, String fileName) {
         File file = new File("your file path");
         String[] filePaths = fileName.split("\\.");
@@ -34,18 +43,17 @@ public class UCloudProvider {
         if (filePaths.length > 1) {
             generatedFileName = UUID.randomUUID().toString() + "." + filePaths[filePaths.length - 1];
         } else {
-            return null;
+            throw new CustomizeException(CustomizeErrorCode.FILE_UPLOAD_ERROR);
         }
-
         try {
             // Bucket相关API的授权器
             ObjectAuthorization objectAuthorization = new UfileObjectLocalAuthorization(publicKey, privateKey);
             // 对象操作需要ObjectConfig来配置您的地区和域名后缀
-            ObjectConfig config = new ObjectConfig("cn-gd", "ufileos.com");
+            ObjectConfig config = new ObjectConfig(region, suffix);
             PutObjectResultBean response = UfileClient.object(objectAuthorization, config)
                     .putObject(fileSteam, fileSteam.available(), mimeType)
                     .nameAs(generatedFileName)
-                    .toBucket("zhipong")
+                    .toBucket(bucketName)
                     /**
                      * 是否上传校验MD5, Default = true
                      */
@@ -64,17 +72,24 @@ public class UCloudProvider {
                         }
                     })
                     .execute();
+
+            if (response != null && response.getRetCode() == 0) {
+                String url = UfileClient.object(objectAuthorization, config)
+                        .getDownloadUrlFromPrivateBucket(generatedFileName, bucketName, expires)
+                        .createUrl();
+                return url;
+            }
         } catch (UfileClientException e) {
             e.printStackTrace();
-            return null;
+            throw new CustomizeException(CustomizeErrorCode.FILE_UPLOAD_ERROR);
         } catch (UfileServerException e) {
             e.printStackTrace();
-            return null;
+            throw new CustomizeException(CustomizeErrorCode.FILE_UPLOAD_ERROR);
         } catch (IOException e) {
             e.printStackTrace();
-            return null;
+            throw new CustomizeException(CustomizeErrorCode.FILE_UPLOAD_ERROR);
         }
-        return generatedFileName;
+        return null;
     }
 }
 

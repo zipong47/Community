@@ -3,6 +3,7 @@ package zhipong.community.mapper;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
+import zhipong.community.dto.QuestionQueryDTO;
 import zhipong.community.model.Question;
 import zhipong.community.model.QuestionExample;
 
