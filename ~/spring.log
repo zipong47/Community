@@ -1,0 +1,27 @@
+2021-06-22 14:06:00.270  INFO 61088 --- [restartedMain] zhipong.community.CommunityApplication   : Starting CommunityApplication using Java 15.0.1 on DESKTOP-4TK2D7R with PID 61088 (H:\projects\javaProjects\community_zhipong\target\classes started by sid in H:\projects\javaProjects\community_zhipong)
+2021-06-22 14:06:00.271  INFO 61088 --- [restartedMain] zhipong.community.CommunityApplication   : No active profile set, falling back to default profiles: default
+2021-06-22 14:06:00.402  INFO 61088 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-06-22 14:06:00.407  INFO 61088 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2021-06-22 14:06:00.485  INFO 61088 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2021-06-22 14:06:00.486  INFO 61088 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-22 14:06:00.486  INFO 61088 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-06-22 14:06:00.501  INFO 61088 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-22 14:06:00.501  INFO 61088 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 228 ms
+2021-06-22 14:06:00.515  INFO 61088 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2021-06-22 14:06:00.530  INFO 61088 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2021-06-22 14:06:00.531  INFO 61088 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/community'
+2021-06-22 14:06:00.558  INFO 61088 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-06-22 14:06:00.561  INFO 61088 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-06-22 14:06:00.566  INFO 61088 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-06-22 14:06:00.567  INFO 61088 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-22 14:06:00.680  WARN 61088 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-22 14:06:00.710  INFO 61088 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-22 14:06:00.723  INFO 61088 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-06-22 14:06:00.762  INFO 61088 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-06-22 14:06:00.772  INFO 61088 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2021-06-22 14:06:00.775  INFO 61088 --- [restartedMain] zhipong.community.CommunityApplication   : Started CommunityApplication in 0.541 seconds (JVM running for 237.189)
+2021-06-22 14:06:00.777  INFO 61088 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-06-22 14:06:14.885  INFO 61088 --- [Thread-8] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-22 14:06:14.886  INFO 61088 --- [Thread-8] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-06-22 14:06:14.887  INFO 61088 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2021-06-22 14:06:14.921  INFO 61088 --- [Thread-8] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.

@@ -1,0 +1,50 @@
+2021-06-22 14:06:14.976  INFO 61088 --- [restartedMain] zhipong.community.CommunityApplication   : Starting CommunityApplication using Java 15.0.1 on DESKTOP-4TK2D7R with PID 61088 (H:\projects\javaProjects\community_zhipong\target\classes started by sid in H:\projects\javaProjects\community_zhipong)
+2021-06-22 14:06:14.976  INFO 61088 --- [restartedMain] zhipong.community.CommunityApplication   : No active profile set, falling back to default profiles: default
+2021-06-22 14:06:15.106  INFO 61088 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-06-22 14:06:15.111  INFO 61088 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2021-06-22 14:06:15.185  INFO 61088 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2021-06-22 14:06:15.186  INFO 61088 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-22 14:06:15.186  INFO 61088 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-06-22 14:06:15.202  INFO 61088 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-22 14:06:15.203  INFO 61088 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 225 ms
+2021-06-22 14:06:15.216  INFO 61088 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2021-06-22 14:06:15.232  INFO 61088 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2021-06-22 14:06:15.233  INFO 61088 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/community'
+2021-06-22 14:06:15.250  INFO 61088 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-06-22 14:06:15.253  INFO 61088 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-06-22 14:06:15.259  INFO 61088 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-06-22 14:06:15.259  INFO 61088 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-22 14:06:15.356  WARN 61088 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-22 14:06:15.380  INFO 61088 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-22 14:06:15.391  INFO 61088 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-06-22 14:06:15.427  INFO 61088 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-06-22 14:06:15.437  INFO 61088 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2021-06-22 14:06:15.440  INFO 61088 --- [restartedMain] zhipong.community.CommunityApplication   : Started CommunityApplication in 0.487 seconds (JVM running for 251.854)
+2021-06-22 14:06:15.441  INFO 61088 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2021-06-22 14:06:26.370  INFO 61088 --- [Thread-14] o.s.s.concurrent.ThreadPoolTaskExecutor  : Shutting down ExecutorService 'applicationTaskExecutor'
+2021-06-22 14:06:26.370  INFO 61088 --- [Thread-14] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2021-06-22 14:06:26.371  INFO 61088 --- [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2021-06-22 14:06:26.396  INFO 61088 --- [Thread-14] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2021-06-22 14:06:34.835  INFO 61088 --- [restartedMain] zhipong.community.CommunityApplication   : Starting CommunityApplication using Java 15.0.1 on DESKTOP-4TK2D7R with PID 61088 (H:\projects\javaProjects\community_zhipong\target\classes started by sid in H:\projects\javaProjects\community_zhipong)
+2021-06-22 14:06:34.835  INFO 61088 --- [restartedMain] zhipong.community.CommunityApplication   : No active profile set, falling back to default profiles: default
+2021-06-22 14:06:34.955  INFO 61088 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2021-06-22 14:06:34.959  INFO 61088 --- [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 4 ms. Found 0 JPA repository interfaces.
+2021-06-22 14:06:35.025  INFO 61088 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8887 (http)
+2021-06-22 14:06:35.025  INFO 61088 --- [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2021-06-22 14:06:35.025  INFO 61088 --- [restartedMain] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.45]
+2021-06-22 14:06:35.039  INFO 61088 --- [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2021-06-22 14:06:35.039  INFO 61088 --- [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 202 ms
+2021-06-22 14:06:35.051  INFO 61088 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Starting...
+2021-06-22 14:06:35.065  INFO 61088 --- [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-5 - Start completed.
+2021-06-22 14:06:35.066  INFO 61088 --- [restartedMain] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:~/community'
+2021-06-22 14:06:35.085  INFO 61088 --- [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2021-06-22 14:06:35.088  INFO 61088 --- [restartedMain] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2021-06-22 14:06:35.093  INFO 61088 --- [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2021-06-22 14:06:35.093  INFO 61088 --- [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2021-06-22 14:06:35.176  WARN 61088 --- [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2021-06-22 14:06:35.201  INFO 61088 --- [restartedMain] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-06-22 14:06:35.210  INFO 61088 --- [restartedMain] o.s.b.a.w.s.WelcomePageHandlerMapping    : Adding welcome page template: index
+2021-06-22 14:06:35.247  INFO 61088 --- [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2021-06-22 14:06:35.257  INFO 61088 --- [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8887 (http) with context path ''
+2021-06-22 14:06:35.260  INFO 61088 --- [restartedMain] zhipong.community.CommunityApplication   : Started CommunityApplication in 0.447 seconds (JVM running for 271.673)
+2021-06-22 14:06:35.260  INFO 61088 --- [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
